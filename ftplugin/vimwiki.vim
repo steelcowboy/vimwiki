@@ -145,11 +145,6 @@ let &formatlistpat = g:vimwiki_rxListItem
 
 if !empty(&langmap)
   " Valid only if langmap is a comma separated pairs of chars
-  let s:l_o = matchstr(&langmap, '\C,\zs.\zeo,')
-  if s:l_o
-    exe 'nnoremap <silent> <buffer> '.s:l_o.' :call vimwiki#lst#kbd_o()<CR>a'
-  endif
-
   let s:l_O = matchstr(&langmap, '\C,\zs.\zeO,')
   if s:l_O
     exe 'nnoremap <silent> <buffer> '.s:l_O.' :call vimwiki#lst#kbd_O()<CR>a'
@@ -478,7 +473,6 @@ if !hasmapto('<Plug>VimwikiListToggle', 'i')
 endif
 inoremap <silent><script><buffer> <Plug>VimwikiListToggle <Esc>:VimwikiListToggle<CR>
 
-nnoremap <silent> <buffer> o :call vimwiki#lst#kbd_o()<CR>
 nnoremap <silent> <buffer> O :call vimwiki#lst#kbd_O()<CR>
 
 if !hasmapto('<Plug>VimwikiRenumberList')
